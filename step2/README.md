@@ -1,11 +1,17 @@
 # Step 2
 
-## Install command-line-args so we can pass keyword as arg/param to index.js
+## Setup and run instructions
+* ```$ npm install```
+* ```$ node index.js "code & coffee vancouver"```
+
+## Development log
+
+#### Install command-line-args so we can pass keyword as arg/param to index.js
 
 ```$ npm install --save command-line-args```
 [*Command-line-args npm package*](https://www.npmjs.com/package/command-line-args)
 
-## Add command-line-args lib to index.js, and ability to accept keyword as an arg
+#### Add command-line-args lib to index.js, and ability to accept keyword as an arg
 
 ```
 const commandLineArgs = require('command-line-args')
@@ -17,20 +23,20 @@ const optionDefinitions = [
 const options = commandLineArgs(optionDefinitions)
 ```
 
-## Run index.js with a keyword
+#### Run index.js with a keyword
 
 ```
 $ npm index.js "code & coffee vancouver"
 $ npm index.js -k "code & coffee vancouver"
 ```
 
-## Add fs lib to index.js so that we can save the HTML
+#### Add fs lib to index.js so that we can save the HTML
 
 ```
 const fs = require('fs');
 ```
 
-## Save the HTML to the current directory
+#### Save the HTML to the current directory
 
 ```
 .then(function () {
@@ -43,11 +49,11 @@ const fs = require('fs');
 })
 ```
 
-## Run index.js
+#### Run index.js with a keyword
 
 ```$ node index.js "code & coffee vancouver"```
 
-## Debug (seems to not save HTML, but instead times out)
+#### Debug (seems to not save HTML, but instead times out)
 
 ```
 var nightmare = Nightmare({ 
@@ -59,7 +65,7 @@ var nightmare = Nightmare({
 });
 ```
 
-## div with ID zero_click_wrapper doesn't contain div with class c-info__title anymore
+#### div with ID zero_click_wrapper doesn't contain div with class c-info__title anymore
 
 > So, waiting for it unfortunately doesn't work, and
 > we don't need to click on it anyways, we just want to get the HTML.
