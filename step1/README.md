@@ -8,9 +8,9 @@
 
 ```$ npm install --save nightmare```
 
-* will take some time *
+*will take some time*
 
-## Create index.js file and copy/paste code from https://github.com/segmentio/nightmare#api
+## Create index.js file and copy/paste code from [https://github.com/segmentio/nightmare#api]
 
 ```
 var Nightmare = require('nightmare');		
