@@ -6,3 +6,6 @@ Setup nightmarejs example web scraper
 
 ## Step 2
 Expand on the example to allow users to pass a keyword as an argument, and save the resulting HTML to the filesystem
+
+## Step 3
+Dockerize the web scraper
