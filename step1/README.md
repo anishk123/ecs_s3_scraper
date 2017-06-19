@@ -1,16 +1,22 @@
 # Step 1
 
-## Initialize package.json file
+## Setup and run instructions
+* ```$ npm install```
+* ```$ node index.js```
+
+## Development log
+
+#### Initialize package.json file
 
 ```$ npm init```
 
-## Install nightmare
+#### Install nightmare
 
 ```$ npm install --save nightmare```
 
 *will take some time*
 
-## Create index.js file and copy/paste code the code below
+#### Create index.js file and copy/paste code the code below
 
 ```
 var Nightmare = require('nightmare');		
@@ -34,6 +40,6 @@ nightmare
  ```
  [*Above code has been referenced from here*](https://github.com/segmentio/nightmare#examples)
 
- ## Run index.js
+ #### Run index.js
 
  ```$ node index.js```
