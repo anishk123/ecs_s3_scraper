@@ -1,8 +1,8 @@
 # ecs_s3_scraper
 A sample website scraper written in nightmare that outputs HTML files to AWS S3, and can be deployed to AWS ECS
 
-> Each step walks through the process at a high level, and has setup instructions pertaining to that step.
-> If you like to run the final result, please do to the completed folder.
+> Each step walks through the code that was written in that step, and has setup instructions pertaining to how to run the code.
+> If you like to run the final result, please go to the completed folder.
 
 ## Step 1
 Setup nightmarejs example web scraper
