@@ -10,7 +10,7 @@
 
 *will take some time*
 
-## Create index.js file and copy/paste code from [https://github.com/segmentio/nightmare#api]
+## Create index.js file and copy/paste code the code below
 
 ```
 var Nightmare = require('nightmare');		
@@ -32,6 +32,7 @@ nightmare
     console.error('Search failed:', error);
   });
  ```
+ [*Above code has been referenced from here*](https://github.com/segmentio/nightmare#examples)
 
  ## Run index.js
 
