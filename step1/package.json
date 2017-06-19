@@ -1,0 +1,28 @@
+{
+  "name": "ecs_s3_scraper",
+  "version": "1.0.0",
+  "description": "a website scraper",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anishk123/ecs_s3_scraper.git"
+  },
+  "keywords": [
+    "ecs",
+    "s3",
+    "website",
+    "scraper"
+  ],
+  "author": "Anish Kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anishk123/ecs_s3_scraper/issues"
+  },
+  "homepage": "https://github.com/anishk123/ecs_s3_scraper#readme",
+  "dependencies": {
+    "nightmare": "2.10.0"
+  }
+}
