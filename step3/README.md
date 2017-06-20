@@ -1,5 +1,8 @@
 # Step 3
 
+## Objective
+Dockerize the web scraper i.e. run the code in a docker container, and obtain the resulting HTML file
+
 ## Setup and run instructions
 * ```$ npm install -g yarn```
 * ```$ yarn install```

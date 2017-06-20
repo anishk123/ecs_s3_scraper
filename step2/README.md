@@ -1,5 +1,8 @@
 # Step 2
 
+## Objective
+Expand on the example to allow users to pass a keyword as an argument, and save the resulting HTML file to the local machine
+
 ## Setup and run instructions
 * ```$ npm install```
 * ```$ node index.js "code & coffee vancouver"```
@@ -22,8 +25,9 @@ const optionDefinitions = [
 
 const options = commandLineArgs(optionDefinitions)
 ```
+*Note: setting defaultOption to true means that we don't have to use -k option. It will assume that the next argument is the "keyword"*
 
-### Run index.js with a keyword
+### Run index.js with a keyword (both commands below do the same thing)
 
 ```
 $ npm index.js "code & coffee vancouver"
@@ -36,7 +40,7 @@ npm index.js -k "code & coffee vancouver"
 const fs = require('fs');
 ```
 
-### Save the HTML to the current directory
+### Change index.js to save the HTML to the current directory
 
 ```
 .then(function () {
@@ -53,7 +57,11 @@ const fs = require('fs');
 
 ```$ node index.js "code & coffee vancouver"```
 
-### Debug (seems to not save HTML, but instead times out)
+### Debug (seems to not save HTML, but instead times out) 
+
+Nightmare.js allows us to open up the Chrome Dev Tools, so we can easily debug the issue. It is pretty handy especially when stuff has changed on the web page.
+
+Change how we initialize Nightmare in index.js to the below.
 
 ```
 var nightmare = Nightmare({ 
@@ -65,11 +73,13 @@ var nightmare = Nightmare({
 });
 ```
 
-### This is because our code expects div with ID zero_click_wrapper to contain div with class c-info__title
+### Oh, the problem is that our code is waiting for the presence of a div with ID zero_click_wrapper that contains a div with class c-info__title
 
 > But, this is not the case anymore.
-> So, waiting for it unfortunately doesn't work, and we don't need to click on it, we just want to get the HTML.
-> There is a div with class content-wrap, let us use that
+> So, waiting for it unfortunately doesn't work.
+> However, there is a div with class content-wrap, so let us use that.
+
+Change the .wait line in index.js to the below.
 
 ```
 .wait('.content-wrap')

@@ -1,22 +1,27 @@
 # Step 1
 
+## Objective
+We want setup and run nightmarejs example web scraper on the local machine.
+
 ## Setup and run instructions
 * ```$ npm install```
 * ```$ node index.js```
 
 ## Development log
 
-#### Initialize package.json file
+### First thing, let us initialize the package.json file
 
 ```$ npm init```
 
-#### Install nightmare
+### Install nightmarejs
 
 ```$ npm install --save nightmare```
 
-*will take some time*
+*Note: This will take some time*
 
-#### Create index.js file and copy/paste code the code below
+### Create index.js file and copy/paste code the code below
+
+The code initializes nightmarejs, and searches a keyword "github nightmare" on your local machine. The code makes use of Javascript Promises to perform async tasks. [Nightmare.js Github repo](https://github.com/segmentio/nightmare) provides a good introduction and guide to learn more about nightmarejs.
 
 ```
 var Nightmare = require('nightmare');		
@@ -40,6 +45,6 @@ nightmare
  ```
  [*Above code has been referenced from here*](https://github.com/segmentio/nightmare#examples)
 
- #### Run index.js
+ ### Run index.js
 
  ```$ node index.js```
