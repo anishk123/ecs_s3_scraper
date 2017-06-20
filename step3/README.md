@@ -73,6 +73,7 @@ Basically,
 Let's give this a try:
 
 ```$ docker run -v <absolute path>/ecs_s3_scraper/step3/:/workspace ecs_s3_scraper:latest index.js "code and coffee vancouver" ```
+
 *Note: The directories have to be absolute path :(*
 
 
