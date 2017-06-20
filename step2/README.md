@@ -27,7 +27,7 @@ const options = commandLineArgs(optionDefinitions)
 
 ```
 $ npm index.js "code & coffee vancouver"
-$ npm index.js -k "code & coffee vancouver"
+npm index.js -k "code & coffee vancouver"
 ```
 
 #### Add fs lib to index.js so that we can save the HTML
@@ -65,12 +65,14 @@ var nightmare = Nightmare({
 });
 ```
 
-#### div with ID zero_click_wrapper doesn't contain div with class c-info__title anymore
+#### This is because our code expects div with ID zero_click_wrapper to contain div with class c-info__title
 
-> So, waiting for it unfortunately doesn't work, and
-> we don't need to click on it anyways, we just want to get the HTML.
+> But, this is not the case anymore.
+> So, waiting for it unfortunately doesn't work, and we don't need to click on it, we just want to get the HTML.
 > There is a div with class content-wrap, let us use that
 
 ```
 .wait('.content-wrap')
 ```
+
+#### Alright, great success! We have the HTML output.
