@@ -14,6 +14,11 @@ Expand on the example to allow users to pass a keyword as an argument, and save 
 ```$ npm install --save command-line-args```
 [*Command-line-args npm package*](https://www.npmjs.com/package/command-line-args)
 
+or
+
+```$ yarn add command-line-args``` if you followed the steps in [ecs_s3_scraper_starter](https://github.com/anishk123/ecs_s3_scraper_starter), and used yarn instead of npm
+
+
 ### Add command-line-args lib to index.js, and ability to accept keyword as an arg
 
 ```
@@ -30,8 +35,8 @@ const options = commandLineArgs(optionDefinitions)
 ### Run index.js with a keyword (both commands below do the same thing)
 
 ```
-$ npm index.js "code & coffee vancouver"
-npm index.js -k "code & coffee vancouver"
+$ node index.js "code & coffee vancouver"
+node index.js -k "code & coffee vancouver"
 ```
 
 ### Add fs lib to index.js so that we can save the HTML
@@ -84,5 +89,9 @@ Change the .wait line in index.js to the below.
 ```
 .wait('.content-wrap')
 ```
+
+### Run index.js again
+
+```$ node index.js "code & coffee vancouver"```
 
 ### Alright, great success! We have the HTML output.
