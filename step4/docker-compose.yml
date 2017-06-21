@@ -1,0 +1,15 @@
+version: '3'
+services:
+  scraper:
+    build: .
+    volumes:
+      - .:/workspace
+      - /workspace/node_modules
+    links:
+      - s3
+    depends_on:
+      - s3
+  s3:
+    image: lphoward/fake-s3
+    ports:
+      - "4569:4569"
