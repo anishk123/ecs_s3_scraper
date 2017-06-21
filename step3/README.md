@@ -25,6 +25,8 @@ Dockerize the web scraper i.e. run the code in a docker container, and obtain th
 2. The github repo is linked.
 3. The Dockerfile seems reasonable, although versions don't seem to be well defined.
 
+*Note: Setting up nightmarejs is pretty straightforward (we did it with a few commands on our local machine), and creating a docker image is a pretty simple process (we will see this in the following steps), but why create your own if someone already has and other people are using it*
+
 
 ### Install docker
 [Docker CE and EE for various platforms](https://www.docker.com/get-docker)
