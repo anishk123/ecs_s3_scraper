@@ -42,7 +42,6 @@ If you visit [http://127.0.0.1:4569/](http://127.0.0.1:4569/) on your web browse
 ![fake_s3_running_inital](images/fake_s3_running_initial.png)
 
 *Note: Since we have named the docker container, we can stop and run it again by using the following simpler commands*
-
 ```
 $ docker container stop my_s3
 $ docker container ls
@@ -182,7 +181,7 @@ The error appears to indicate a problem with electron on the docker container. A
 
 Interesting...
 
-We are actually sharing the install between local and docker via the node_modules directory which has been mounted to the docker container, probably creating an issue with the electron install on the docker container
+**We are actually sharing the install between local and docker via the node_modules directory which has been mounted to the docker container, probably creating an issue with the electron install on the docker container**
 
 Alright, so similar to .gitignore, Docker has .dockerignore.
 
@@ -203,14 +202,15 @@ docker run -v <absolute path>/ecs_s3_scraper/step4/:/workspace ecs_s3_scraper:la
 
 Fails, with the same error!
 
-The problem is that even though we are installing the libraries on the docker image, when we run the image on the container, we share the node_modules from the local machine thereby leading to the same issue as before.
+**The problem is that even though we are installing the libraries on the docker image, when we run the image on the container, we share the node_modules from the local machine thereby leading to the same issue as before.**
 
 Alright, let us remove the mount point and try again
+
 ```$ docker run ecs_s3_scraper:latest index.js "code and coffee vancouver"```
 
 AHA! That works, great success!!!
 
-There are few issues that we have with this setup though
+There are few issues that we have with this setup though.
 
 1. Everytime we change the code in index.js, we have to rebuild the docker image since we can't mount the directory from the local machine.
 2. There are quite a few steps to document/remember inorder to get this working on the local machine like the steps to building and running fake-S3 and the scraper, steps to testing locally vs docker etc.
@@ -258,7 +258,7 @@ volumes:
   - /workspace/node_modules
 ```
 
-This tells Docker Compose to mount the working directory to /workspace, but leave /workspace/node_modules alone.
+**This tells Docker Compose to mount the working directory to /workspace, but leave /workspace/node_modules alone.**
 
 Checkout [Docker Compose Volumes](https://docs.docker.com/compose/compose-file/#volumes) for more information on this. Also, there are some nuances around networking and port forwarding in Docker Compose, for which [Networking in Compose](https://docs.docker.com/compose/networking/) is worth a read.
 
@@ -284,7 +284,7 @@ services:
 
 Lastly, we need to change "http://localhost:4569" to http://s3:4569" in index.js for the networking amongst the services to work properly.
 
-Ok, now we can build our images, and then we can run the docker containers as services - all of this is going to use the defintions in docker-compose.yml
+Ok, now we can build our images, and after that run the docker containers as services - all of this is going to use the defintions in docker-compose.yml
 
 ```
 $ docker-compose build
@@ -293,4 +293,4 @@ docker-compose run scraper index.js "code and coffee vancouver"
 
 WOAH! Everything seems to have run fine. Lets check our fake-s3 to ensure that the HTML file is there, and we are done!
 
-Time to celebrate!!! :)
+**Time to celebrate!!! :)**
