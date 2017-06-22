@@ -3,13 +3,14 @@
 ## Objective
 Configure a mock AWS S3 running on a docker container, and write the HTML file from the dockerized web scraper to it
 
-## Setup and run instructions
+## To execute the code in this directory, run the commands below
+If you like to code it yourself, follow the steps in the [Development log]
 ```
 $ docker-compose build
 docker-compose run scraper index.js "code and coffee vancouver"
 ```
 
-## Development log
+## Coding changes and tools installed to complete the objective (Development log)
 
 ### Search for a fake S3 docker image on [hub.docker.com](https://hub.docker.com)
 ![Searching for fake S3 on hub.doker.com](images/searching_for_fake_s3_on_docker_hub.png)

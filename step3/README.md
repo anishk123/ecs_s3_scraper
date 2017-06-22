@@ -3,7 +3,8 @@
 ## Objective
 Dockerize the web scraper i.e. run the code in a docker container, and obtain the resulting HTML file
 
-## Setup and run instructions
+## To execute the code in this directory, run the commands below
+If you like to code it yourself, follow the steps in the [Development log]
 * ```$ npm install -g yarn```
 * ```$ yarn install```
 * [Install Docker](https://www.docker.com/get-docker)
@@ -13,7 +14,7 @@ Dockerize the web scraper i.e. run the code in a docker container, and obtain th
 
 *Note: We are using the yarn package manager from now onwards because our docker image uses it, and it is also better than npm*
 
-## Development log
+## Coding changes and tools installed to complete the objective (Development log)
 
 ### Search for a nightmarejs docker image on [hub.docker.com](https://hub.docker.com)
 ![Searching for nightmare on hub.doker.com](images/searching_for_nightmare_on_docker_hub.png)

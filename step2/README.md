@@ -3,21 +3,28 @@
 ## Objective
 Expand on the example to allow users to pass a keyword as an argument, and save the resulting HTML file to the local machine
 
-## Setup and run instructions
+## To execute the code in this directory, run the commands below
+If you like to code it yourself, follow the steps in the [Development log](README.md#coding-changes-and-tools-installed-to-complete-the-objective-development-log)
 * ```$ npm install```
 * ```$ node index.js "code & coffee vancouver"```
 
-## Development log
+## Coding changes and tools installed to complete the objective (Development log)
 
 ### Install command-line-args so we can pass keyword as arg/param to index.js
 
+If you followed the steps in [ecs_s3_scraper_starter](https://github.com/anishk123/ecs_s3_scraper_starter), and used yarn instead of npm, then
+
+```
+$ rm -rf node_modules
+$ npm install
+```
+
+  > *Note: The above command uninstalls all the libraries that were installed by yarn, and installs them via npm. Yarn is a better package manager, and we will use it in Step 3 onwards, but the way yarn installs electron on OSX is different than Linux, and this makes things difficult for us in Step 2, so we are reverting to using npm for now. (This is explained in more detail in Step 3)*
+
+OTHERWISE
+
 ```$ npm install --save command-line-args```
 [*Command-line-args npm package*](https://www.npmjs.com/package/command-line-args)
-
-or
-
-```$ yarn add command-line-args``` if you followed the steps in [ecs_s3_scraper_starter](https://github.com/anishk123/ecs_s3_scraper_starter), and used yarn instead of npm
-
 
 ### Add command-line-args lib to index.js, and ability to accept keyword as an arg
 
@@ -31,6 +38,16 @@ const optionDefinitions = [
 const options = commandLineArgs(optionDefinitions)
 ```
 *Note: setting defaultOption to true means that we don't have to use -k option. It will assume that the next argument is the "keyword"*
+
+### Remove hardcoded keyword, and instead use the keyword param that was passed in
+
+Change 
+
+```.type('#search_form_input_homepage', "code and coffee vancouver")``` 
+
+to 
+
+```.type('#search_form_input_homepage', options.keyword)```
 
 ### Run index.js with a keyword (both commands below do the same thing)
 
