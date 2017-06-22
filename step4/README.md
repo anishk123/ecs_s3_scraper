@@ -4,7 +4,7 @@
 Configure a mock AWS S3 running on a docker container, and write the HTML file from the dockerized web scraper to it
 
 ## To execute the code in this directory, run the commands below
-If you like to code it yourself, follow the steps in the [Development log]
+If you like to code it yourself, follow the steps in the [Development log](README.md#coding-changes-and-tools-installed-to-complete-the-objective-development-log)
 ```
 $ docker-compose build
 docker-compose run scraper index.js "code and coffee vancouver"

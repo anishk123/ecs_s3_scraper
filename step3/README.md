@@ -4,7 +4,7 @@
 Dockerize the web scraper i.e. run the code in a docker container, and obtain the resulting HTML file
 
 ## To execute the code in this directory, run the commands below
-If you like to code it yourself, follow the steps in the [Development log]
+If you like to code it yourself, follow the steps in the [Development log](README.md#coding-changes-and-tools-installed-to-complete-the-objective-development-log)
 * ```$ npm install -g yarn```
 * ```$ yarn install```
 * [Install Docker](https://www.docker.com/get-docker)
