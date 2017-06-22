@@ -131,10 +131,12 @@ Taking this to the next level, we can create
 
 > docker-compose.yml
 
-docker-compose-test.yml
+> docker-compose-test.yml
 
-docker-compose-production.yml
+> docker-compose-production.yml
 
 and we can set the s3 service in production to be actual AWS S3.
 
 Infact, we can do a bit more than that if we like, ECS provides a [CLI](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cmd-ecs-cli-compose.html) that we can use to setup everything that is required for ECS service(s) to run.
+
+### To be continued...
