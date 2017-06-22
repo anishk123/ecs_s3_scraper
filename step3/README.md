@@ -5,7 +5,7 @@ Dockerize the web scraper i.e. run the code in a docker container, and obtain th
 
 ## To execute the code in this directory, run the commands below
 If you like to code it yourself, follow the steps in the [Development log](README.md#coding-changes-and-tools-installed-to-complete-the-objective-development-log)
-* ```$ npm install -g yarn```
+* ```$ npm install -g yarn@0.18.1```
 * ```$ yarn install```
 * [Install Docker](https://www.docker.com/get-docker)
 * ```$ docker pull ivanvanderbyl/docker-nightmare```
