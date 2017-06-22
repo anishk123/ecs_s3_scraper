@@ -41,7 +41,7 @@ If you like to code it yourself, follow the steps in the [Development log](READM
 
 ### Create Dockerfile and copy/paste the usage instructions into it
 ```
-FROM quay.io/ivanvanderbyl/docker-nightmare:latest
+FROM ivanvanderbyl/docker-nightmare
 
 ADD . /workspace
 RUN yarn install
