@@ -207,7 +207,7 @@ At a high level, what we have above are 2 services - web and redis. The web serv
 
 We can setup our services in a similar way.
 
-This appears to solve our problem of having to document/remember most of the setup and run commands.
+> This appears to solve our problem of having to document/remember most of the setup and run commands.
 
 The configuration for volumes get rid of absolute path, yay!
 
@@ -217,7 +217,7 @@ volumes:
   - /workspace/node_modules
 ```
 
-**This tells Docker Compose to mount the working directory to /workspace, but leave /workspace/node_modules alone.**
+> This tells Docker Compose to mount the working directory to /workspace, but leave /workspace/node_modules alone.
 
 Checkout [Docker Compose Volumes](https://docs.docker.com/compose/compose-file/#volumes) for more information on this. Also, there are some nuances around networking and port forwarding in Docker Compose, for which [Networking in Compose](https://docs.docker.com/compose/networking/) is worth a read.
 
