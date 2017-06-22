@@ -1,4 +1,4 @@
-FROM quay.io/ivanvanderbyl/docker-nightmare:latest
+FROM ivanvanderbyl/docker-nightmare
 
 ADD . /workspace
 RUN yarn install
