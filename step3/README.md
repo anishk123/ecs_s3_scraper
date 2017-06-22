@@ -123,7 +123,9 @@ Fails, with the same error!
 
 There is way to prevent the /workspace/node_modules directory from mounting onto the container as follows
 
-```$ docker run -v /workspace/node_modules -v <absolute path>/ecs_s3_scraper/step3/:/workspace ecs_s3_scraper:latest index.js "code and coffee vancouver"```
+```
+$ docker run -v /workspace/node_modules -v <absolute path>/ecs_s3_scraper/step3/:/workspace ecs_s3_scraper:latest index.js "code and coffee vancouver"
+```
 
 ### That seems to have worked! We have the same result as in Step 2
 
