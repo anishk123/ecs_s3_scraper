@@ -10,7 +10,7 @@ If you like to code it yourself, follow the steps in the [Development log](READM
 * [Install Docker](https://www.docker.com/get-docker)
 * ```$ docker pull ivanvanderbyl/docker-nightmare```
 * ```$ docker build -t ecs_s3_scraper .```
-* ```$ docker run -v <absolute path>/ecs_s3_scraper/step3/:/workspace ecs_s3_scraper:latest index.js "code and coffee vancouver"```
+* ```$ docker run -v /workspace/node_modules -v <absolute path>/ecs_s3_scraper/step3/:/workspace ecs_s3_scraper:latest index.js "code and coffee vancouver"```
 
 *Note: We are using the yarn package manager from now onwards because our docker image uses it, and it is also better than npm*
 
