@@ -168,7 +168,7 @@ docker run -v /workspace/node_modules -v <absolute path>/ecs_s3_scraper/step4/:/
 
 *Note: We need to rebuild our docker image because we have installed new dependencies/libraries such as aws-sdk that are not installed in our docker image
 
-> The upload to fake S3 may work for some people, and not for others.
+**The upload to fake S3 may work for some people, and not for others.**
 
 If it doesn't work for you, you will see an error like below:
 
@@ -189,7 +189,7 @@ If it doesn't work for you, you will see an error like below:
   time: 2017-06-22T05:51:41.099Z }
 ```
 
-This is because we don't have a network setup between the docker containers.
+> This is because we don't have a network setup between the docker containers.
 
 Apart from that, there are also a few other issues that we have with this setup.
 
