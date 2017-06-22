@@ -115,6 +115,8 @@ var config = {
 }
 ```
 
+then, the last step is to remove the dotenv lib, build and run again
+
 ```
 $ yarn remove dotenv
 docker-compose build
@@ -128,7 +130,9 @@ This is great! It picks up all the environment variables from docker-compose.yml
 Taking this to the next level, we can create
 
 > docker-compose.yml
+
 docker-compose-test.yml
+
 docker-compose-production.yml
 
 and we can set the s3 service in production to be actual AWS S3.
