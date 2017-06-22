@@ -75,6 +75,20 @@ const fs = require('fs');
 })
 ```
 
+### .end() in index.js doesn't work because it is not a Javascript promise, so change it to one
+
+Replace
+
+```.end()```
+
+with
+
+```
+.then(function(){
+  return nightmare.end();
+})
+ ```
+
 ### Run index.js with a keyword
 
 ```$ node index.js "code & coffee vancouver"```
