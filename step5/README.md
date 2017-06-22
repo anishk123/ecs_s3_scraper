@@ -38,6 +38,7 @@ var config = {
 ```
 
 Let's run the scraper service and see if it still works
+
 ```$ docker-compose run scraper index.js "code and coffee vancouver"```
 
 Awesome! appears to work.
