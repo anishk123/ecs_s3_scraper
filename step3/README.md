@@ -121,7 +121,7 @@ Fails, with the same error!
 
 **The problem is that even though we are installing the libraries on the docker image, when we run the image on the container, we share the node_modules from the local machine thereby leading to the same issue as before.**
 
-There is way to prevent the /workspace/node_modules directory from mounting onto the container as follows
+> There is way to prevent the /workspace/node_modules directory from mounting onto the container as follows
 
 ```
 $ docker run -v /workspace/node_modules -v <absolute path>/ecs_s3_scraper/step3/:/workspace ecs_s3_scraper:latest index.js "code and coffee vancouver"
