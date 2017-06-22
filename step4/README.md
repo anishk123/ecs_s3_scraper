@@ -168,9 +168,30 @@ docker run -v /workspace/node_modules -v <absolute path>/ecs_s3_scraper/step4/:/
 
 *Note: We need to rebuild our docker image because we have installed new dependencies/libraries such as aws-sdk that are not installed in our docker image
 
-AHA! That works, great success!!!
+> The upload to fake S3 may work for some people, and not for others.
 
-There are few issues that we have with this setup though.
+If it doesn't work for you, you will see an error like below:
+
+```
+{ Error: connect ECONNREFUSED 127.0.0.1:4569
+    at Object.exports._errnoException (util.js:1022:11)
+    at exports._exceptionWithHostPort (util.js:1045:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1090:14)
+  message: 'connect ECONNREFUSED 127.0.0.1:4569',
+  code: 'NetworkingError',
+  errno: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '127.0.0.1',
+  port: 4569,
+  region: 'us-east-1',
+  hostname: 'localhost',
+  retryable: true,
+  time: 2017-06-22T05:51:41.099Z }
+```
+
+This is because we don't have a network setup between the docker containers.
+
+Apart from that, there are also a few other issues that we have with this setup.
 
 1. There are quite a few steps to document/remember inorder to get this working on the local machine like the steps to building and running fake-S3 and the scraper, steps to testing locally vs docker etc.
 2. We have hardcoded "https://localhost:4569" as an AWS S3 endpoint. The is going to be a problem when we try to deploy to AWS ECS.
