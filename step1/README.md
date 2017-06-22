@@ -3,11 +3,12 @@
 ## Objective
 We want setup and run nightmarejs example web scraper on the local machine.
 
-## Setup and run instructions
+## To execute the code in this directory, run the commands below
+If you like to code it yourself, follow the steps in the Development log
 * ```$ npm install```
 * ```$ node index.js```
 
-## Development log
+## Coding changes and tools installed to complete the objective (Development log)
 
 ### First thing, let us initialize the package.json file
 
