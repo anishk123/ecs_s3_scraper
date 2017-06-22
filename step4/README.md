@@ -139,9 +139,7 @@ function writeFileToS3(fileName) {
 }
 ```
 
-and call this function write after
-
-``` fs.writeFileSync(options.keyword+'.html'); ```
+and call this function write after ``` fs.writeFileSync(options.keyword+'.html'); ```
 
 Ok, let's give that another shot
 
@@ -159,65 +157,25 @@ It should look like
 
 Download the HTML, and check if it looks alright.
 
-Excellent! let us try running this in our nightmare docker container and see if have the same result
+Excellent! let us try running this in our nightmare docker container and see if we have the same result
 
 ### Running code to write HTML to fake-S3 on a docker container
 
 ```
 $ docker build -t ecs_s3_scraper .
-docker run -v <absolute path>/ecs_s3_scraper/step4/:/workspace ecs_s3_scraper:latest index.js "code and coffee vancouver"
+docker run -v /workspace/node_modules -v <absolute path>/ecs_s3_scraper/step4/:/workspace ecs_s3_scraper:latest index.js "code and coffee vancouver"
 ```
 
-*Note: We need to rebuild our docker image because we have installed new dependencies/libraries such as aws-sdk that are not installed in our docker image*
-
-Hmm, doesn't seem to work. The error looks like
-
-```
-Tue, 20 Jun 2017 21:07:55 GMT nightmare running
-Tue, 20 Jun 2017 21:07:55 GMT nightmare electron child process exited with code 2: undefined
-Tue, 20 Jun 2017 21:07:55 GMT nightmare electron child process not started yet, skipping kill.
-```
-
-The error appears to indicate a problem with electron on the docker container. A bit of Googling suggests that since electron is a binary that was installed by nightmare, there might be a difference in the installation on our local machine (running OSX) and the docker container running Linux. 
-
-Interesting...
-
-**We are actually sharing the install between local and docker via the node_modules directory which has been mounted to the docker container, probably creating an issue with the electron install on the docker container**
-
-Alright, so similar to .gitignore, Docker has .dockerignore.
-
-Let us create .dockerignore and add node_modules and yarn.lock to it
-
-```
-node_modules/
-yarn.lock
-```
-
-Trying once more...
-
-```
-$ docker build -t ecs_s3_scraper .
-docker run -v <absolute path>/ecs_s3_scraper/step4/:/workspace ecs_s3_scraper:latest index.js "code and coffee vancouver"
-```
-*Note: docker build command may take a while longer than before because it is installing all the dependencies/libraries that used to previously be shared from the local machine*
-
-Fails, with the same error!
-
-**The problem is that even though we are installing the libraries on the docker image, when we run the image on the container, we share the node_modules from the local machine thereby leading to the same issue as before.**
-
-Alright, let us remove the mount point and try again
-
-```$ docker run ecs_s3_scraper:latest index.js "code and coffee vancouver"```
+*Note: We need to rebuild our docker image because we have installed new dependencies/libraries such as aws-sdk that are not installed in our docker image
 
 AHA! That works, great success!!!
 
 There are few issues that we have with this setup though.
 
-1. Everytime we change the code in index.js, we have to rebuild the docker image since we can't mount the directory from the local machine.
-2. There are quite a few steps to document/remember inorder to get this working on the local machine like the steps to building and running fake-S3 and the scraper, steps to testing locally vs docker etc.
-3. We have hardcoded "https://localhost:4569" as an AWS S3 endpoint. The is going to be a problem when we try to deploy to AWS ECS.
+1. There are quite a few steps to document/remember inorder to get this working on the local machine like the steps to building and running fake-S3 and the scraper, steps to testing locally vs docker etc.
+2. We have hardcoded "https://localhost:4569" as an AWS S3 endpoint. The is going to be a problem when we try to deploy to AWS ECS.
 
-Let us work on a solution to problems 1. and 2. next. We will tackle 3. in Step 5.
+Let us work on a solution for problem 1 next. We will start tackling problem 2 as well, but we will actually resolve it in Step 5.
 
 ### Defining and running multi-container Docker applications using Docker compose
 
@@ -251,7 +209,7 @@ We can setup our services in a similar way.
 
 This appears to solve our problem of having to document/remember most of the setup and run commands.
 
-Inorder to solve the other problem of having to rebuild the docker image everything, we change the "volumes" configuration to something like:
+The configuration for volumes get rid of absolute path, yay!
 
 ```
 volumes:
@@ -283,7 +241,7 @@ services:
       - "4569:4569"
 ```
 
-Lastly, we need to change "http://localhost:4569" to http://s3:4569" in index.js for the networking amongst the services to work properly.
+Lastly, we need to change "http://localhost:4569" to http://s3:4569" in index.js for the networking amongst the services to work properly. Cool, isn't it?
 
 Ok, now we can build our images, and after that run the docker containers as services - all of this is going to use the defintions in docker-compose.yml
 

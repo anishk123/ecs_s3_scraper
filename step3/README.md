@@ -86,16 +86,46 @@ Let's give this a try:
 
 *Note: The directories have to be absolute path :(*
 
+### Hmm, doesn't seem to work. The error looks like
 
-### Hmm, doesn't quite work because the local directory doesn't have the dependencies installed
-> more specifically it doesn't have the dependencies installed using yarn
-
-So, let's clean up the existing node dependencies, and install them using yarn
 ```
-$ rm -rf node_modules/
-yarn install
+Tue, 20 Jun 2017 21:07:55 GMT nightmare running
+Tue, 20 Jun 2017 21:07:55 GMT nightmare electron child process exited with code 2: undefined
+Tue, 20 Jun 2017 21:07:55 GMT nightmare electron child process not started yet, skipping kill.
+```
+
+> The error appears to indicate a problem with electron on the docker container. A bit of Googling suggests that since electron is a binary that was installed by nightmare, there might be a difference in the installation on our local machine (running OSX) and the docker container running Linux. 
+
+Interesting...
+
+**We are actually sharing the install between local and docker via the node_modules directory which has been mounted to /workspace/node_modules on the docker container, probably creating an issue with electron on the docker container**
+
+Alright, so similar to .gitignore, Docker has .dockerignore.
+
+Let us create .dockerignore and add node_modules and yarn.lock to it
+
+```
+node_modules/
+yarn.lock
+```
+
+Trying once more...
+
+```
+$ docker build -t ecs_s3_scraper .
 docker run -v <absolute path>/ecs_s3_scraper/step3/:/workspace ecs_s3_scraper:latest index.js "code and coffee vancouver"
 ```
+*Note: docker build command may take a while longer than before because it is installing all the dependencies/libraries that used to previously be shared from the local machine*
 
+Fails, with the same error!
 
-### That seems to have worked! We have the same result as in step2
+**The problem is that even though we are installing the libraries on the docker image, when we run the image on the container, we share the node_modules from the local machine thereby leading to the same issue as before.**
+
+There is way to prevent the /workspace/node_modules directory from mounting onto the container as follows
+
+```$ docker run -v /workspace/node_modules -v <absolute path>/ecs_s3_scraper/step3/:/workspace ecs_s3_scraper:latest index.js "code and coffee vancouver"```
+
+### That seems to have worked! We have the same result as in Step 2
+
+### Let's ensure the our local libraries are installed before moving onto Step 4
+```$ yarn install ```

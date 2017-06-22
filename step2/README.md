@@ -14,12 +14,7 @@ If you like to code it yourself, follow the steps in the [Development log](READM
 
 If you followed the steps in [ecs_s3_scraper_starter](https://github.com/anishk123/ecs_s3_scraper_starter), and used yarn instead of npm, then
 
-```
-$ rm -rf node_modules
-$ npm install
-```
-
-  > *Note: The above command uninstalls all the libraries that were installed by yarn, and installs them via npm. Yarn is a better package manager, and we will use it in Step 4 onwards, but the way yarn installs electron on OSX is different than Linux, and this makes things difficult for us in Step 3, so we are reverting to using npm for now. (This is explained in more detail in Step 4)*
+```$ yarn add command-line-args```
 
 OTHERWISE
 
