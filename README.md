@@ -11,7 +11,7 @@ Click on the step link, and you will see instructions on how to run the code in 
 ### [Step 1](step1)
 Setup nightmarejs example web scraper on the local machine. 
 
-*Note: If you have followed the steps in [ecs_s3_scraper_starter](https://github.com/anishk123/ecs_s3_scraper_starter), then you don't need to do this step. The [dev log](https://github.com/anishk123/ecs_s3_scraper/tree/master/step1#development-log) talks about how we got there though, if you are interested in finding out.*
+*Note: If you have followed the steps in [ecs_s3_scraper_starter](https://github.com/anishk123/ecs_s3_scraper_starter), then you don't need to do this step. The [dev log](https://github.com/anishk123/ecs_s3_scraper/blob/master/step1/README.md#coding-changes-and-tools-installed-to-complete-the-objective-development-log) talks about how we got there though, if you are interested in finding out.*
 
 ### [Step 2](step2)
 Expand on the example to allow users to pass a keyword as an argument, and save the resulting HTML file to the local machine
