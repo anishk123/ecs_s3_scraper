@@ -4,7 +4,7 @@
 We want setup and run nightmarejs example web scraper on the local machine.
 
 ## To execute the code in this directory, run the commands below
-If you like to code it yourself, follow the steps in the Development log
+If you like to code it yourself, follow the steps in the [Development log](README.md#coding-changes-and-tools-installed-to-complete-the-objective-development-log)
 * ```$ npm install```
 * ```$ node index.js```
 
